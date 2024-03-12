@@ -6,8 +6,8 @@ router
     .post('/login', (req, res, next) => {
         // login
         console.log(req.body)
-        const {username, password} = req.body;
-        connection.query('SELECT * FROM user WHERE username = ? AND password = ?', [username, password], (err, results, fields) => {
+        const {email, password} = req.body;
+        connection.query('SELECT * FROM user WHERE email = ? AND password = ?', [email, password], (err, results, fields) => {
             if (err) {
                 res.status(500).json({
                     message: "Error"
